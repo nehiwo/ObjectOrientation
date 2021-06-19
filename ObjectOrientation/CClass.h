@@ -4,6 +4,8 @@
 #define Public extern
 #define Private static
 
+#define VECTOR_DIMENTION 5
+typedef int vec[VECTOR_DIMENTION];
 
 /* define Class */
 typedef struct CClass CClass_t;
@@ -17,7 +19,7 @@ typedef struct CClass {
 	//public member1.
 	int* member1;
 	//public method1.
-	int* (*method_sum_vecter)(int* vrcter_a, int* vecter_b, int* vecter_sum);
+	void (*method_sum_vector)(vec vrcter_a, vec vector_b, vec vector_sum);
 	//setter.
 	void (*setter)(const int set_number);
 	//getter.
@@ -30,7 +32,7 @@ typedef struct CClass {
 Public void Constractor(CClass_t *class_a);
 Public void Destractor(CClass_t *class_a);
 Public int member1;
-Public int* sum_vecter(int* vecter_a, int* vecter_b, int* vecter_sum);
+Public void sum_vector(vec vector_a, vec vector_b, vec vector_sum);
 Public void setter(const int set_number);
 Public int getter(void);
 

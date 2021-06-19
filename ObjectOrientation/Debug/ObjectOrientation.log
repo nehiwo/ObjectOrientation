@@ -1,2 +1,4 @@
 ﻿  ObjectOrientation.c
+C:\Users\Masay\source\repos\ObjectOrientation\ObjectOrientation\ObjectOrientation.c(12,12): warning C4013: 関数 'getchar' は定義されていません。int 型の値を返す外部関数と見なします。
+C:\Users\Masay\source\repos\ObjectOrientation\ObjectOrientation\ObjectOrientation.c(16,15): warning C4013: 関数 'printf' は定義されていません。int 型の値を返す外部関数と見なします。
   ObjectOrientation.vcxproj -> C:\Users\Masay\source\repos\ObjectOrientation\Debug\ObjectOrientation.exe

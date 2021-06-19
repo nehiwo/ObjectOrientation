@@ -5,15 +5,30 @@ int main()
     //instance of class.
     CClass_t class_main = { 0 };
     Constractor(&class_main);
-    int vecter_a[2] = { 0, 3 };
-    int vecter_b[2] = { 8, 9 };
-    int vecter_sum[2] = { 0, 0 };
+    vec vector_a = { 0, 3, 7, 89, -12 };
+    vec vector_b = { 8, 9, -182, 89, 2 };
+    vec vector_sum = { 0, 0, 0, 0, 0 };
+    int dim = 0;
     getchar();
     //use class method.
-    class_main.method_sum_vecter(vecter_a, vecter_b, vecter_sum);
+    class_main.method_sum_vector(vector_a, vector_b, vector_sum);
     while (1) {
+        printf("vector_a = { ");
+        for (dim = 0; dim < VECTOR_DIMENTION; dim++) {
+            printf("%d, ", vector_a[dim]);
+        }
+        printf("}\n");
+        printf("vector_b = { ");
+        for (dim = 0; dim < VECTOR_DIMENTION; dim++) {
+            printf("%d, ", vector_b[dim]);
+        }
+        printf("}\n");
+        printf("vector_a + vector_b = { ");
+        for (dim = 0; dim < VECTOR_DIMENTION; dim++) {
+            printf("%d, ", vector_sum[dim]);
+        }
+        printf("}\n");
         //confirm value of private member.
-        printf("%d, %d\n", vecter_sum[0], vecter_sum[1]);
         printf("private member = %d\n", class_main.getter()/* use class getter */);
         //use class setter for private member.
         class_main.setter(10);

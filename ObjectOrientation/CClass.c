@@ -3,7 +3,7 @@
 
 //private method & member.
 Private int member2 = 0;
-Private int sum_scaler(const int* a, const int* b);
+Private int sum_scaler(const vec a, const vec b, const int* dim);
 
 //instance of public member.
 member1 = 0;
@@ -14,7 +14,7 @@ void Constractor(CClass_t* class_a){
 	class_a->member1 = &member1;
 	class_a->constractor = Constractor;
 	class_a->destractor = Destractor;
-	class_a->method_sum_vecter = sum_vecter;
+	class_a->method_sum_vector = sum_vector;
 	class_a->setter = setter;
 	class_a->getter = getter;
 	member2 = 0;
@@ -41,38 +41,23 @@ void Destractor(CClass_t* class_a) {
 	printf("Open Destractor!\nClosed Class!\n");
 }
 
-int* sum_vecter(int* vecter_a,int* vecter_b, int* vecter_sum) {
-	printf("%d %d\n", *vecter_a, *vecter_b);
-	getchar();
-	if (vecter_a == NULL || vecter_b == NULL) {
+void sum_vector(vec vector_a,vec vector_b, vec vector_sum) {
+	if (vector_a == NULL || vector_b == NULL) {
 		printf("NO data.\n");
 		exit(1);
 	}
-	printf("pass!\n");
-	getchar();
-	size_t vecter_a_size = sizeof(vecter_a);
-	size_t vecter_b_size = sizeof(vecter_b);
-	printf("%d, %d\n", vecter_a_size, vecter_b_size);
-	if (vecter_a_size != vecter_b_size) {
-		printf("dim(vecter_a) != dim(vecter_b) !\n");
-		exit(2);
-	}
-	printf("pass!\n");
-	getchar();
-	for (int dim = 0; dim < vecter_a_size; dim++) {
-		*vecter_sum = sum_scaler(vecter_a, vecter_b);
-		vecter_a++;
-		vecter_b++;
-		vecter_sum++;
+
+	for (int dim = 0; dim < VECTOR_DIMENTION; dim++) {
+		vector_sum[dim] = sum_scaler(vector_a, vector_b, &dim);
 	}
 
-	return vecter_sum;
+	return;
 }
 
-int sum_scaler(const int* scaler_a, const int* scaler_b) {
+int sum_scaler(const vec scaler_a, const vec scaler_b, const int* dim) {
 	if (scaler_a == NULL || scaler_b == NULL) {
 		exit(1);
 	}
 
-	return *scaler_a + *scaler_b;
+	return scaler_a[*dim] + scaler_b[*dim];
 }
